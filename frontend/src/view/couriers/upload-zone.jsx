@@ -1,8 +1,8 @@
-import { FileIcon, UploadCloudIcon, XIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 const BASE_URL = import.meta.env.VITE_REACT_APP_BACKEND_BASEURL;
 import { Button, Input, Loader } from "rizzui";
+import { BsFile, BsUpload, BsX } from "react-icons/bs";
 
 function ProductImageUpload({
   imageFile,
@@ -105,7 +105,7 @@ function ProductImageUpload({
             htmlFor="image-upload"
             className="flex flex-col items-center justify-center h-32 cursor-pointer"
           >
-            <UploadCloudIcon className="w-10 h-10 text-muted-foreground mb-2" />
+            <BsUpload className="w-10 h-10 text-muted-foreground mb-2" />
             <span>Drag & drop or click to upload image</span>
           </label>
         ) : imageLoadingState ? (
@@ -123,7 +123,7 @@ function ProductImageUpload({
                   className="w-12 h-12 object-cover rounded mr-2"
                 />
               ) : (
-                <FileIcon className="w-8 text-primary mr-2 h-8" />
+                <BsFile className="w-8 text-primary mr-2 h-8" />
               )}
             </div>
             <p className="text-sm font-medium">
@@ -135,7 +135,7 @@ function ProductImageUpload({
               className="text-muted-foreground hover:text-foreground"
               onClick={handleRemoveImage}
             >
-              <XIcon className="w-4 h-4" />
+              <BsX className="w-4 h-4" />
               <span className="sr-only">Remove File</span>
             </Button>
           </div>

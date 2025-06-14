@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { FiHash, FiLink2, FiMoreHorizontal, FiSmile } from 'react-icons/fi';
 import { Input } from 'rizzui';
-// import { MoreHorizontal, Hash, Link2, Smile } from 'lucide-react';
 
 const Timeline = () => {
   const [comment, setComment] = useState('');
