@@ -7,7 +7,6 @@ import Table from "@shared/components/table/table";
 import CustomExpandedComponent from "@shared/components/table/custom/expanded-row";
 import { useTanStackTable } from "@shared/components/table/custom/use-TanStack-Table";
 import TablePagination from "@shared/components/table/pagination";
-import { OrdersDataType } from "@shared/components/order/recent-order";
 import { Input, TableVariantProps } from "rizzui";
 import cn from "@/utils/helperFunctions/class-names";
 import { useAppDispatch, useAppSelector } from "@/hooks/store-hook";
@@ -133,7 +132,7 @@ export default function OrderTable({
   console.log("orderData", CourierList?.length);
   const [expandedRowId, setExpandedRowId] = useState<any>(null);
   const ultimateData = activeTab === "booked" ? BookedOrderList : orderData;
-  const { table, setData, setColumns } = useTanStackTable<OrdersDataType>({
+  const { table, setData, setColumns } = useTanStackTable<any>({
     tableData: ensureArray(ultimateData),
     columnConfig: [],
     options: {

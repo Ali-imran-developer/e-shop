@@ -4,7 +4,6 @@ import { TableVariantProps } from "rizzui";
 import cn from "@/utils/helperFunctions/class-names";
 import { useAppDispatch } from "@/hooks/store-hook";
 import { useEffect, useState } from "react";
-import { OrdersDataType } from "@/components/shared/components/order/recent-order";
 import { ensureArray } from "@/utils/helperFunctions/formater-helper";
 import { CustomerColumn } from "./columns";
 import CustomerDrawer from "../drawer";
@@ -29,7 +28,7 @@ export default function CustomerTable({
 }) {
   const [ customerData, setCustomerData ] = useState();
   const dispatch = useAppDispatch();
-  const { table, setData } = useTanStackTable<OrdersDataType>({
+  const { table, setData } = useTanStackTable<any>({
     tableData: ensureArray(data),
     columnConfig: CustomerColumn(),
     options: {

@@ -19,13 +19,13 @@ export const useAuth = () => {
         const response: any = await AuthController.userLogin(payload);
 
         const { user, token, stores, survey } = response;
-        AuthController.setSession({
-          survey,
-          user,
-          stores,
-          isAuthenticated: true,
-          accessToken: token,
-        });
+        // AuthController.setSession({
+        //   survey,
+        //   user,
+        //   stores,
+        //   isAuthenticated: true,
+        //   accessToken: token,
+        // });
         callback &&
           callback(CALLBACK_STATUS.SUCCESS, { user, token, stores, survey });
       } catch (error) {
@@ -46,11 +46,11 @@ export const useAuth = () => {
         callback && callback(CALLBACK_STATUS.LOADING, true);
         const response: any = await AuthController.userSignUp(payload);
         const { user, token } = response;
-        AuthController.setSession({
-          user,
-          isAuthenticated: true,
-          accessToken: token,
-        });
+        // AuthController.setSession({
+        //   user,
+        //   isAuthenticated: true,
+        //   accessToken: token,
+        // });
         callback && callback(CALLBACK_STATUS.SUCCESS, user);
       } catch (error) {
         callback && callback(CALLBACK_STATUS.ERROR, error);
@@ -65,8 +65,8 @@ export const useAuth = () => {
     async (callback: (status: CALLBACK_STATUS, value: any) => void) => {
       try {
         callback && callback(CALLBACK_STATUS.LOADING, true);
-        const res = await AuthController.logout();
-        callback && callback(CALLBACK_STATUS.SUCCESS, res);
+        // const res = await AuthController.logout();
+        // callback && callback(CALLBACK_STATUS.SUCCESS, res);
       } catch (error) {
         callback && callback(CALLBACK_STATUS.ERROR, error);
       } finally {
@@ -80,9 +80,9 @@ export const useAuth = () => {
     async (callback: (status: CALLBACK_STATUS, value: any) => void) => {
       try {
         // callback && callback(CALLBACK_STATUS.LOADING, true);
-        AuthController.setSession({
-          isAuthenticated: true,
-        });
+        // AuthController.setSession({
+        //   isAuthenticated: true,
+        // });
         // callback && callback(CALLBACK_STATUS.SUCCESS, res);
       } catch (error) {
         console.log(error);

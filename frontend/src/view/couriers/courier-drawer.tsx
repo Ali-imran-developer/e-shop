@@ -56,7 +56,7 @@ const CourierDrawer = ({
   cancelCloseDrawer: () => void;
 }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const { handleAddCourierKeys, updateMyCouriers } = useCouriers();
+  // const { handleAddCourierKeys, updateMyCouriers } = useCouriers();
 
   const functionCallBack: any = {
     [CALLBACK_STATUS.LOADING]: (payload: any) => {
@@ -100,9 +100,9 @@ const CourierDrawer = ({
         name: courier.name,
         courierId: courier._id,
       };
-      handleAddCourierKeys(payload, (status: string, payload: any) =>
-        functionCallBack[status](payload)
-      );
+      // handleAddCourierKeys(payload, (status: string, payload: any) =>
+      //   functionCallBack[status](payload)
+      // );
     },
   });
 

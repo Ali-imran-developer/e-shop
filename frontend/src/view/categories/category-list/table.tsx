@@ -3,7 +3,6 @@ import Table from "@components/shared/components/table/index";
 import CustomExpandedComponent from "./expanded-row";
 import { useTanStackTable } from "@shared/components/table/custom/use-TanStack-Table";
 import TablePagination from "@shared/components/table/pagination";
-import { OrdersDataType } from "@shared/components/order/recent-order";
 import { TableVariantProps } from "rizzui";
 import cn from "@/utils/helperFunctions/class-names";
 import { useEffect, useState } from "react";
@@ -23,7 +22,7 @@ export default function CategoriesTable({
 }) {
   const dispatch = useAppDispatch();
   const { categoryList, isLoading } = useAppSelector((state) => state.Categories);
-  const { table, setData } = useTanStackTable<OrdersDataType>({
+  const { table, setData } = useTanStackTable<any>({
     tableData: ensureArray(categoryList),
     columnConfig: CategoriesColumns(),
     options: {

@@ -34,7 +34,7 @@ apiClient.interceptors.response.use(
         status === 401
       ) {
         console.log("Unauthorized! Logging out...");
-        AuthController.logout();
+        // AuthController.logout();
         window.location.href = "/login";
       }
     }
