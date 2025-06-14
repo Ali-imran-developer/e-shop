@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "types": ["node"],
+    "target": "ESNext",
+    "module": "esnext",
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "skipLibCheck": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@shared/*": ["src/components/shared/*"],
+      "@layouts/*": ["src/components/layout/*"],
+      "@utils/*": ["src/utils/*"],
+      "@config/*": ["src/config/*"],
+      "@ui/*": ["src/components/ui/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@data/*": ["src/data/*"],
+      "@controllers/*": ["src/controllers/*"]
+    },
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "esModuleInterop": true, // Add this flag
+    "allowSyntheticDefaultImports": true, // Add this flag
+    "strict": true
+  },
+  "typeRoots": ["node_modules/@types", "src/types"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.js",
+    "src/**/*.jsx",
+    "src/@types/**/*.d.ts",
+    "src/view/a-testing/index.tsx"
+  ],
+  "exclude": ["node_modules"],
+  "skipLibCheck": true
+}

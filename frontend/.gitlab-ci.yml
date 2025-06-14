@@ -1,0 +1,27 @@
+New.shopilam.com frontend:
+  stage: deploy
+  environment:
+    name: new.shopilam.com
+    url: https://new.shopilam.com/
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - mkdir -p ~/.ssh
+    - eval $(ssh-agent -s)
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  script:
+    - echo "New.shopilam.com Deployment"
+    - ssh-add <(echo "$SSH_KEY")
+    - rm -rf .git
+    - |
+      ssh -o StrictHostKeyChecking=no root@3.142.187.252 << EOF
+      set -e
+      source /root/.nvm/nvm.sh
+      cd /var/www/new.shopilam.com/
+      git reset --mixed
+      git pull origin production
+      pnpm install
+      pnpm build
+      chown -R www-data:www-data /var/www/new.shopilam.com/
+      EOF
+  only:
+    - production
